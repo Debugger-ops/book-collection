@@ -1,30 +1,116 @@
-# 📚 Book Collection
+# Book Collection App
 
-A full-stack Book Collection app built with **Next.js** where users can view, add, edit, and manage their favorite books.
+A Next.js application for managing your personal book collection. This app allows you to create, view, edit, and delete books in your collection with a clean, responsive interface.
 
-## 🚀 Features
+## Features
 
-- View a list of all books
-- Add a new book with title, author, genre, publication year, and cover image
-- Edit and update book details
-- View individual book details
-- Responsive and clean UI
+- View all books in your collection
+- Add new books with details like title, author, genre, and more
+- View detailed information about each book
+- Edit book details
+- Delete books from your collection
+- Responsive design for desktop and mobile devices
 
-## 🛠️ Tech Stack
+## Tech Stack
 
-- [Next.js 15](https://nextjs.org/)
-- React
-- CSS Modules
-- (Optional) MongoDB or JSON API for book storage
+- **Framework**: Next.js 14 (App Router)
+- **Database**: MongoDB with Mongoose
+- **Styling**: CSS Modules
+- **API**: Next.js API Routes
 
-## 📸 Screenshots
+## Project Structure
 
-> _Add screenshots here if available_
+```
+book-collection/
+├── app/
+│   ├── api/
+│   │   └── books/                   # API endpoints for CRUD operations
+│   ├── books/                       # Book routes (list, detail, add, edit)
+│   ├── components/                  # Reusable UI components
+│   ├── lib/                         # Database connection utilities
+│   ├── models/                      # Mongoose data models
+│   └── ...                          # App configuration files
+├── public/                          # Static assets
+├── .env.local                       # Environment variables
+└── ...                              # Configuration files
+```
 
-## 📦 Getting Started
+## Getting Started
 
-### 1. Clone the repo
+### Prerequisites
+
+- Node.js 18.x or later
+- MongoDB database
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/book-collection.git
+   cd book-collection
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Create a `.env.local` file in the root directory with your MongoDB connection string:
+   ```
+   MONGODB_URI=your_mongodb_connection_string
+   ```
+
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+
+## API Endpoints
+
+- `GET /api/books` - Get all books
+- `POST /api/books` - Create a new book
+- `GET /api/books/[id]` - Get a book by ID
+- `PUT /api/books/[id]` - Update a book
+- `DELETE /api/books/[id]` - Delete a book
+
+## Data Model
+
+Book schema:
+- `title` (String, required): The title of the book
+- `author` (String, required): The author of the book
+- `genre` (String): The genre of the book
+- `publicationYear` (Number): Year the book was published
+- `isbn` (String): ISBN number of the book
+- `description` (String): Description or summary of the book
+- `coverImage` (String): URL to the book cover image
+- `pageCount` (Number): Number of pages in the book
+- `rating` (Number): Your personal rating (1-5)
+- `readStatus` (String): Status like "Read", "Currently Reading", or "Want to Read"
+- `createdAt` (Date): Date the book was added to the collection
+- `updatedAt` (Date): Date the book information was last updated
+
+## Development
+
+### Adding New Features
+
+1. Create necessary components in the `components/` directory
+2. Add/modify routes in the appropriate directories
+3. Update API endpoints as needed
+4. Extend the data model if required
+
+### Building for Production
 
 ```bash
-git clone https://github.com/your-username/book-collection.git
-cd book-collection
+npm run build
+```
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- Next.js documentation
+- MongoDB and Mongoose documentation
