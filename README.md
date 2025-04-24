@@ -22,17 +22,73 @@ A Next.js application for managing your personal book collection. This app allow
 
 ```
 book-collection/
+├── .env.local
+├── .gitignore
+├── eslint.config.mjs
+├── jsconfig.json
+├── next.config.mjs
+├── package.json
+├── README.md
+├── .next/
+│   ├── app-build-manifest.json
+│   ├── build-manifest.json
+│   ├── fallback-build-manifest.json
+│   ├── package.json
+│   ├── react-loadable-manifest.json
+│   ├── trace
+│   ├── cache/
+│   │   ├── .rscinfo
+│   │   ├── swc/
+│   │   └── webpack/
+│   └── server/
+│       ├── _error.js
+│       └── ...
+├── public/
+│   ├── file.svg
+│   ├── globe.svg
+│   ├── next.svg
+│   ├── vercel.svg
+│   └── window.svg
 ├── app/
+│   ├── favicon.ico
+│   ├── globals.css
+│   ├── layout.js
+│   ├── page.js
+│   ├── page.module.css
 │   ├── api/
-│   │   └── books/                   # API endpoints for CRUD operations
-│   ├── books/                       # Book routes (list, detail, add, edit)
-│   ├── components/                  # Reusable UI components
-│   ├── lib/                         # Database connection utilities
-│   ├── models/                      # Mongoose data models
-│   └── ...                          # App configuration files
-├── public/                          # Static assets
-├── .env.local                       # Environment variables
-└── ...                              # Configuration files
+│   │   └── books/
+│   │       ├── route.js
+│   │       └── [id]/
+│   │           └── route.js
+│   ├── books/
+│   │   ├── books.module.css
+│   │   ├── page.js
+│   │   ├── [id]/
+│   │   │   ├── detail.module.css
+│   │   │   ├── page.js
+│   │   │   └── edit/
+│   │   │       ├── edit.module.css
+│   │   │       └── page.js
+│   │   └── add/
+│   │       ├── add.module.css
+│   │       └── page.js
+│   ├── components/
+│   │   ├── BookCard/
+│   │   │   ├── BookCard.jsx
+│   │   │   └── BookCard.module.css
+│   │   ├── BookForm/
+│   │   │   ├── BookForm.jsx
+│   │   │   └── BookForm.module.css
+│   │   ├── BookList/
+│   │   │   ├── BookList.jsx
+│   │   │   └── BookList.module.css
+│   │   └── Navbar/
+│   │       ├── Navbar.jsx
+│   │       └── Navbar.module.css
+│   ├── lib/
+│   │   └── mongoConnect.js
+│   └── models/
+│       └── Book.js
 ```
 
 ## Getting Started
