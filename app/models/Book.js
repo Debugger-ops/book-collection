@@ -1,12 +1,12 @@
-// app/models/Book.js
 import mongoose from 'mongoose';
 
-const bookSchema = new mongoose.Schema({
+const BookSchema = new mongoose.Schema({
   title: { type: String, required: true },
   author: { type: String, required: true },
-  // other fields
+  description: { type: String },
+  publishedYear: { type: Number },
 });
 
-const Book = mongoose.models.Book || mongoose.model('Book', bookSchema); // Ensure it's using mongoose.model
+const Book = mongoose.models.Book || mongoose.model('Book', BookSchema);
 
-export default Book; // Make sure you're using default export
+export default Book;
