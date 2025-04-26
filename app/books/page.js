@@ -1,5 +1,6 @@
-import { getBooks } from '@/app/lib/books';
-import BookList from '@/app/components/BookList/BookList';
+// app/books/page.js
+import { getBooks } from '../lib/mongoConnect'; // Ensure this path is correct
+import BookList from '../components/BookList/BookList';
 import Link from 'next/link';
 import styles from './books.module.css';
 
@@ -9,19 +10,25 @@ export const metadata = {
 };
 
 export default async function BooksPage() {
-  const books = await getBooks();
+  let books = [];
   
+
+  try {
+    books = await getBooks(); // Fetch books from the database
+  } catch (err) {
+    console.error('Error fetching books:', err);
+
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
         <h1>My Book Collection</h1>
-        <Link href="/books/add" className={styles.addButton}>
-          Add New Book
-        </Link>
+      
       </div>
-      
+
       <BookList books={books} />
-      
+
       {books.length === 0 && (
         <div className={styles.emptyState}>
           <p>Your collection is empty. Start adding books!</p>
